@@ -31,3 +31,19 @@ export default {
     }
 }
 </script>
+
+<style lang="css" scoped>
+    button {
+        background-color: #0088cc;
+        padding: 10px 15px;
+        outline: none;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #35465C;
+        color: azure;
+    }
+</style>
