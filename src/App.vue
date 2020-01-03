@@ -1,11 +1,7 @@
 <template>
   <div id="app">
-    <button @click="showMovies">Show Movies</button>
-    <button @click="showLocations">Show Locations</button>
-    <button @click="showPeople">Show People</button>
-    <button @click="showSpecies">Show Species</button>
-    <button @click="showVehicles">Show Vehicles</button>
-    <movies v-if="moviesTab" />
+    <nav-menu />
+    <movies />
     <locations />
     <people />
     <species />
@@ -14,6 +10,7 @@
 </template>
 
 <script>
+import NavMenu from './components/NavMenu.vue'
 import Movies from './components/Movies.vue'
 import Locations from './components/Locations.vue'
 import People from './components/People.vue'
@@ -23,6 +20,7 @@ import Vehicles from './components/Vehicles.vue'
 export default {
   name: 'app',
   components: {
+    NavMenu,
     Movies,
     Locations,
     People,
@@ -31,27 +29,10 @@ export default {
   },
   data() {
     return {
-      moviesTab: false
+    
     }
   },
-  methods: {
-    showMovies() {
-      this.$store.dispatch('getMovies')
-      this.moviesTab = true
-    },
-    showLocations() {
-      this.$store.dispatch('getLocations')
-    },
-    showPeople() {
-      this.$store.dispatch('getPeople')
-    },
-    showSpecies() {
-      this.$store.dispatch('getSpecies')
-    },
-    showVehicles() {
-      this.$store.dispatch('getVehicles')
-    }
-  }
+  
 }
 </script>
 
