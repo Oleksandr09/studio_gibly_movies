@@ -1,17 +1,56 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="showMovies">Show Movies</button>
+    <button @click="showLocations">Show Locations</button>
+    <button @click="showPeople">Show People</button>
+    <button @click="showSpecies">Show Species</button>
+    <button @click="showVehicles">Show Vehicles</button>
+    <movies v-if="moviesTab" />
+    <locations />
+    <people />
+    <species />
+    <vehicles />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Movies from './components/Movies.vue'
+import Locations from './components/Locations.vue'
+import People from './components/People.vue'
+import Species from './components/Species.vue'
+import Vehicles from './components/Vehicles.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Movies,
+    Locations,
+    People,
+    Species,
+    Vehicles
+  },
+  data() {
+    return {
+      moviesTab: false
+    }
+  },
+  methods: {
+    showMovies() {
+      this.$store.dispatch('getMovies')
+      this.moviesTab = true
+    },
+    showLocations() {
+      this.$store.dispatch('getLocations')
+    },
+    showPeople() {
+      this.$store.dispatch('getPeople')
+    },
+    showSpecies() {
+      this.$store.dispatch('getSpecies')
+    },
+    showVehicles() {
+      this.$store.dispatch('getVehicles')
+    }
   }
 }
 </script>
